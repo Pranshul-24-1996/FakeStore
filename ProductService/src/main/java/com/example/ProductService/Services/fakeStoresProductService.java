@@ -5,8 +5,11 @@ import com.example.ProductService.dtos.FakeStoreProductDto;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-@Service
+import java.util.List;
+
+@Service("fakeStore")
 public class fakeStoresProductService implements ProductService{
+
     @Override
     public Product getProductById(long productId) {
         /*
@@ -19,6 +22,26 @@ public class fakeStoresProductService implements ProductService{
 
         assert fakeStoreProductDto != null;
         return convertFakeStoreProductToProduct(fakeStoreProductDto);
+    }
+
+    @Override
+    public List<Product> getProducts() {
+        return List.of();
+    }
+
+    @Override
+    public Product createProduct(String name, String description, String category, int price) {
+        return null;
+    }
+
+    @Override
+    public String updateProductById(Long productId, Product updatedProductDetails) {
+        return "";
+    }
+
+    @Override
+    public String deleteProductById(long productId) {
+        return "";
     }
 
     private Product convertFakeStoreProductToProduct(FakeStoreProductDto dto) {
