@@ -37,7 +37,7 @@ public class ProductServiceImpl_WithMySQL implements ProductService{
     }
 
     @Override
-    public Product createProduct(String name, String description, String category, int price) {
+    public Product createProduct(String name, String description, String category, Double price) {
 
         /*
         Select * From products Where name = {name}
@@ -66,10 +66,18 @@ public class ProductServiceImpl_WithMySQL implements ProductService{
                 .orElseThrow(() -> new ProductNotFoundException("Product not found with id: " + productId));
 
         // update the product's attributes
-        existingProduct.setName(updatedProductDetails.getName());
-        existingProduct.setDescription(updatedProductDetails.getDescription());
-        existingProduct.setCategory(updatedProductDetails.getCategory());
-        existingProduct.setPrice(updatedProductDetails.getPrice());
+        if (updatedProductDetails.getName() != null) {
+            existingProduct.setName(updatedProductDetails.getName());
+        }
+        if (updatedProductDetails.getDescription() != null) {
+            existingProduct.setDescription(updatedProductDetails.getDescription());
+        }
+        if (updatedProductDetails.getCategory() != null) {
+            existingProduct.setCategory(updatedProductDetails.getCategory());
+        }
+        if (updatedProductDetails.getPrice() != null) {
+            existingProduct.setPrice(updatedProductDetails.getPrice());
+        }
 
         // Save the updated product back to the database
         productRepository.save(existingProduct);

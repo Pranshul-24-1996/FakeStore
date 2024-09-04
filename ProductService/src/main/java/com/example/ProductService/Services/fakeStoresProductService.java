@@ -30,7 +30,7 @@ public class fakeStoresProductService implements ProductService{
     }
 
     @Override
-    public Product createProduct(String name, String description, String category, int price) {
+    public Product createProduct(String name, String description, String category, Double price) {
         return null;
     }
 
