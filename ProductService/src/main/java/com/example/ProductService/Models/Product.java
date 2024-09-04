@@ -15,9 +15,9 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // it is used for Auto-increment
-    long productId;
+    Long productId;
     String name;
-    int price;
+    Double price;
     String description;
     String category;
     String image;

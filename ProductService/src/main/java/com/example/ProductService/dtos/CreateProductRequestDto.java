@@ -7,5 +7,5 @@ public class CreateProductRequestDto {
     String name;
     String description;
     String category;
-    int price;
+    Double price;
 }

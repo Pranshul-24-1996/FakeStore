@@ -10,7 +10,7 @@ public interface ProductService {
 
     public List<Product> getProducts();
 
-    public Product createProduct(String name, String description , String category, int price);
+    public Product createProduct(String name, String description , String category, Double price);
 
     public String updateProductById(Long productId, Product updatedProductDetails);
 
